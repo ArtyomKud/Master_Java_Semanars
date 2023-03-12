@@ -5,6 +5,7 @@ public class HomeWork1_Task2 {
         PrimeNumber();
 
     }
+
     static void PrimeNumber ()
     {
         System.out.print(2 + " ");
