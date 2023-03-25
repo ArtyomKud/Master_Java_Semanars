@@ -1,8 +1,29 @@
+import sun.misc.Launcher;
+
+import java.io.IOException;
+import java.rmi.Remote;
 import java.util.Random;
+import java.util.logging.*;
 
 public class Main {
+    static {System.setProperty("java.util.logging.SimpleFormatter.format",
+            "%1$tF %1$tT [%4$-7s] %3$s - %5$s %n");}
+    static java.util.logging.Logger log = java.util.logging.Logger.getLogger(Main.class.getName());
+
     public static void main(String[] args) {
-        int numberOfElements =10;
+
+        try {
+            Handler faleHandler = new FileHandler("logging.log", 100* 1024, 3, true);
+            faleHandler.setFormatter(new SimpleFormatter());
+            log.addHandler(faleHandler);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        int numberOfElements =20;
         int rangeNumberArray = 20;
         int[] arrayIsNotSorted = new int[numberOfElements];
         int[] arrayIsSorted = new int[arrayIsNotSorted.length];
@@ -35,6 +56,7 @@ public class Main {
         {
             arraySortable[i] = arrayOriginal[i];
         }
+        StringBuilder str = new StringBuilder();
         int temp;
         int numberOfSortedItems = 1;
         for(int i = 0; i < arraySortable.length; i++)
@@ -48,9 +70,22 @@ public class Main {
                     arraySortable[j] = temp;
                 }
 
+
+
+
             }
+            for (int item: arraySortable
+                 ) {
+                str.append(item+" ");
+
+            }
+            log.setLevel(Level.INFO);
+            log.info(String.valueOf(str));
+            str.delete(0,str.length());
             numberOfSortedItems++;
         }
 
     }
+
+
 }
