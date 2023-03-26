@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class InputOperation {
 
     private String operation;
-    private String [] array = new String[] {"*-умножить", "/-разделить", "+-сложить", "--вычесть", "s-стереть", "q-выход","p-вывести результат"};
-    private String [] array2 = new String[] {"*", "/", "+", "-", "s", "q","p"};
+    private String [] array = new String[] {"*-умножить", "/-разделить", "+-сложить", "--вычесть", "s-стереть", "q-выход","p-вывести результат, m-отменить последнюю операцию"};
+    private String [] array2 = new String[] {"*", "/", "+", "-", "s", "q","p","m"};
     private ArrayList<String> operations = new ArrayList<String>(Arrays.asList(array2));
     private Boolean flag = true;
     private Scanner scanner = new Scanner(System.in);
