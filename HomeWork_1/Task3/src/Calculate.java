@@ -9,21 +9,24 @@ public class Calculate {
     {
         if (operations.contains(operation)) {
 
-            switch (operation) {
-                case "*":
-                    return number1 * number2;
-                case "/":
-                    if (number2 == 0) {
-                        return 0;
-                    }
-                    return number1 / number2;
-                case "+":
-                    return number1 + number2;
-                case "-":
-                    return number1 - number2;
+            if(operation.equals("*")){
+                return number1 * number2;
             }
+            if(operation.equals("/")){
+                return number1 / number2;
+            }
+            if(operation.equals("+")){
+                return number1 + number2;
+            }
+            if(operation.equals("-")){
+                return number1 - number2;
+            }
+
+
+
         }
         return 0;
+
 
     }
 

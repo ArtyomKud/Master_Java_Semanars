@@ -22,11 +22,11 @@ public class Task3 {
         Calculate calculate = new Calculate();
         InputOperation inputOperation = new InputOperation();
         Boolean flag = true;
-        int tempNumber = number.InputUserNumber();
+        int result = number.InputUserNumber();
         log.setLevel(Level.INFO);
-        log.info(String.valueOf(tempNumber));
+        log.info(String.valueOf(result));
         int tempNumber2 = 0;
-        int result = 0;
+        int memoryResult=result;
         String operation;
 
 
@@ -47,14 +47,15 @@ public class Task3 {
                         log.info(String.valueOf("На ноль делить нельзя!!!"));
                         break;
                     }
-                    result = calculate.CalculateOperations(tempNumber, operation, tempNumber2);
+                    memoryResult = result;
+                    result = calculate.CalculateOperations(result, operation, tempNumber2);
+
                     log.setLevel(Level.INFO);
                     log.info(String.valueOf("Результат = "+result));
 
                 } else if (operation.equals("s")) {
-                    tempNumber = number.InputUserNumber();
-                    tempNumber2 = 0;
                     result = 0;
+                    tempNumber2 = 0;
                     log.setLevel(Level.INFO);
                     log.info(String.valueOf("Стерли"));
                 } else if (operation.equals("q")) {
@@ -66,6 +67,9 @@ public class Task3 {
                     log.setLevel(Level.INFO);
                     log.info(String.valueOf("Вывод результата"+result));
                     System.out.println(result);
+                }
+                else if (operation.equals("m")){
+                    result = memoryResult;
                 }
 
             }
