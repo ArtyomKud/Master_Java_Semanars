@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Shop {
@@ -29,32 +26,47 @@ public class Shop {
 
     public void setFilterCriteria() {
         String temp = "";
+        Integer temp2 = 0;
         System.out.println("Укажите минимальный объем оперативной памяти: ");
-        sortingCriteria.put("ram",scanner.nextLine());
+        try {
+            temp2 = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            temp2 = -1;
+        }
+        sortingCriteria.put("ram",temp2);
         System.out.println("Укажите минимальный объем жесткого диска: ");
-        sortingCriteria.put("hardDiskCapacity",scanner.nextLine());
+        try {
+            temp2 = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            temp2 = -1;
+        }
+        sortingCriteria.put("hardDiskCapacity",temp2);
         System.out.println("Укажите операционную систему: ");
         temp = scanner.nextLine();
-        if(temp.equals("/")){
+        if(temp.equals("")){
             sortingCriteria.put("operatingSystem","non");
 
         }
         else {
-            sortingCriteria.put("operatingSystem",temp);
+            sortingCriteria.put("operatingSystem",temp.toLowerCase());
         }
         System.out.println("Укажите цвет: ");
-        temp = scanner.nextLine();
-        if(!temp.equals("")){
+        temp=scanner.nextLine();
+        if(temp.equals("")){
             sortingCriteria.put("color","non");
 
         }
         else {
-            sortingCriteria.put("color",temp);
+            sortingCriteria.put("color",temp.toLowerCase());
         }
 
         System.out.println("Укажите минимальную стоимость: ");
-        sortingCriteria.put("price",scanner.nextLine());
-        System.out.println(sortingCriteria.toString());
+        try {
+            temp2 = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            temp2 = -1;
+        }
+        sortingCriteria.put("price",temp2);
     }
 
 

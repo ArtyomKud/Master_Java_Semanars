@@ -14,8 +14,8 @@ public class Laptop{
         id++;
         this.ram = ram;
         this.hardDiskCapacity = hardDiskCapacity;
-        this.operatingSystem = operatingSystem;
-        this.color = color;
+        this.operatingSystem = operatingSystem.toLowerCase();
+        this.color = color.toLowerCase();
         this.price = price;
 
     }
@@ -31,11 +31,11 @@ public class Laptop{
     }
 
     public void setOperatingSystem(String operatingSystem) {
-        this.operatingSystem = operatingSystem;
+        this.operatingSystem = operatingSystem.toLowerCase();
     }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = color.toLowerCase();
     }
 
     public void setPrice(int price) {
